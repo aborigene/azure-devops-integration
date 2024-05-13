@@ -1,0 +1,1794 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      6
+    ],
+    "clusterVersion": "1.260.137.20230220-113153"
+  },
+  "id": "bdfc2208-c555-4f46-874d-3225b6e1074e",
+  "dashboardMetadata": {
+    "name": "Azure Devops",
+    "shared": true,
+    "owner": "gabriel.marques@dynatrace.com",
+    "dashboardFilter": {
+      "timeframe": "-24h to now"
+    },
+    "popularity": 10,
+    "hasConsistentColors": false
+  },
+  "tiles": [
+    {
+      "name": "Builds Succeded",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1102,
+        "left": 0,
+        "width": 494,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.builds",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "buildstatus",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "succeeded",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.builds:filter(and(or(eq(buildstatus,succeeded)))):splitBy():sort(value(auto,descending)):limit(20)):limit(100):names",
+        "resolution=null&(log.azuredevops.builds:filter(and(or(eq(buildstatus,succeeded)))):splitBy():sort(value(auto,descending)):limit(20))"
+      ]
+    },
+    {
+      "name": "Builds Failed",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1406,
+        "left": 0,
+        "width": 494,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.builds",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "buildstatus",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "failed",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "value": 0,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.builds:filter(and(or(eq(buildstatus,failed)))):splitBy():sort(value(auto,descending)):limit(20)):limit(100):names",
+        "resolution=null&(log.azuredevops.builds:filter(and(or(eq(buildstatus,failed)))):splitBy():sort(value(auto,descending)):limit(20))"
+      ]
+    },
+    {
+      "name": "Builds Failed",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1406,
+        "left": 494,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.builds",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "buildnumber"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "buildstatus",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "failed",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "columnId": "",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "A",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.builds:filter(and(or(eq(buildstatus,failed)))):splitBy(buildnumber):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Builds Succeded",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1102,
+        "left": 494,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.builds",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "buildnumber"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "buildstatus",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "succeeded",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.builds:filter(and(or(eq(buildstatus,succeeded)))):splitBy(buildnumber):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Builds Reason - Succeded",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1102,
+        "left": 836,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.builds",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "reason"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "buildstatus",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "succeeded",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.builds:filter(and(or(eq(buildstatus,succeeded)))):splitBy(reason):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Builds Reason - Failed",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1406,
+        "left": 836,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.builds",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "reason"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "buildstatus",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "failed",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "columnId": "",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "A",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.builds:filter(and(or(eq(buildstatus,failed)))):splitBy(reason):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Releases Succeded",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 114,
+        "left": 0,
+        "width": 494,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.releases",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "result",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "succeeded.",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"succeeded.\")))):splitBy():sort(value(auto,descending)):limit(20)):limit(100):names",
+        "resolution=null&(log.azuredevops.releases:filter(and(or(eq(result,\"succeeded.\")))):splitBy():sort(value(auto,descending)):limit(20))"
+      ]
+    },
+    {
+      "name": "Releases Succeded",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 114,
+        "left": 494,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.releases",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "releasename"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "result",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "succeeded.",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"succeeded.\")))):splitBy(releasename):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Releases Succeded Stage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 114,
+        "left": 836,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.releases",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "stage"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "result",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "succeeded.",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"succeeded.\")))):splitBy(stage):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Release Duration Avg",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 722,
+        "left": 0,
+        "width": 646,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.release_duration",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "unitTransform": "s",
+            "valueFormat": "auto",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.release_duration:splitBy():avg:auto:sort(value(avg,descending)):limit(20)):limit(100):names",
+        "resolution=null&(log.azuredevops.release_duration:splitBy():avg:auto:sort(value(avg,descending)):limit(20))"
+      ]
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 0,
+        "width": 1178,
+        "height": 76
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "markdown": "## [Build Status](/ui/log-monitoring?gtf=-24h%20to%20now&gf=all&query=loglevel%3D%22none%22%20AND%20eventtype%3D%22build.complete%22&sortDirection=desc&visibleColumns=timestamp&visibleColumns=status&visibleColumns=content&advancedQueryMode=false&visualizationType=table&isDefaultQuery=false)\n---\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 1178,
+        "height": 76
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "markdown": "## [Releases Status](/ui/log-monitoring?gtf=-24h%20to%20now&gf=all&query=loglevel%3D%22none%22%20AND%20eventtype%3D%22ms.vss-release.deployment-completed-event%22&sortDirection=desc&visibleColumns=timestamp&visibleColumns=status&visibleColumns=content&advancedQueryMode=false&visualizationType=table&isDefaultQuery=false)\n---\n"
+    },
+    {
+      "name": "Image",
+      "tileType": "IMAGE",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1178,
+        "width": 532,
+        "height": 228
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "image": "data:image/webp;base64,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"
+    },
+    {
+      "name": "Duration by Release in Seconds",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 722,
+        "left": 646,
+        "width": 532,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Heatmap",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.release_duration",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "releasename"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "HEATMAP",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "DIMENSIONS"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 120,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 300,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": false
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=null&(log.azuredevops.release_duration:splitBy(releasename):avg:auto:sort(value(avg,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Releases Succeded by Project",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 1178,
+        "width": 532,
+        "height": 380
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.azuredevops.releases",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "project"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "result",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "succeeded.",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"succeeded.\")))):splitBy(project):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Releases Rejected",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 0,
+        "width": 494,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy():sort(value(auto,descending)):limit(20)",
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "value": 0,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy():sort(value(auto,descending)):limit(20)):limit(100):names",
+        "resolution=null&(log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy():sort(value(auto,descending)):limit(20))"
+      ]
+    },
+    {
+      "name": "Releases Rejected",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 494,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "releasename"
+          ],
+          "metricSelector": "log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy(\"releasename\"):sort(value(auto,descending)):limit(20)",
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "value": 0,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy(releasename):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Releases Rejected Stage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 836,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "stage"
+          ],
+          "metricSelector": "log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy(\"stage\"):sort(value(auto,descending)):limit(20)",
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "value": 0,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy(stage):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Releases Rejected by Project",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 1178,
+        "width": 532,
+        "height": 380
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "project"
+          ],
+          "metricSelector": "log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy(project):sort(value(auto,descending)):limit(20)",
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(log.azuredevops.releases:filter(and(or(eq(result,\"rejected.\")))):splitBy(project):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Log viewer results",
+      "tileType": "LOG_QUERY",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 1178,
+        "width": 532,
+        "height": 684
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "query": "eventtype=\"build.complete\" OR eventtype=\"ms.vss-release.deployment-completed-event\"",
+      "sort": "desc",
+      "columnHeaders": [
+        "timestamp",
+        "eventtype",
+        "buildstatus",
+        "result"
+      ]
+    }
+  ]
+}
